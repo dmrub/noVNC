@@ -1709,7 +1709,8 @@ var UI;
         updateDesktopName: function(rfb, name) {
             UI.desktopName = name;
             // Display the desktop name in the document title
-            document.title = name + " - noVNC";
+            var title = WebUtil.getConfigVar('title', 'noVNC');
+            document.title = name + (title ? " - " + title : "");
         },
 
         bell: function(rfb) {
